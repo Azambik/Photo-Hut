@@ -1,11 +1,12 @@
 <article class="photo">
   <div class="title">
-    <a href="{{photo_url}}" target="_blank">{{title}}</a>
-    <span>({{format_url photo_url}})</span>
+    <img src="{{photo_url}}" alt={{title}} class="card-img">
   </div>
   <div class="meta">
-    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
+    {{vote_count}} {{format_plural "like" vote_count}}
     |
-    <a href="/photo/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    {{comments.length}} {{format_plural "comment" comments.length}}
+    <br>
+    Posted by {{user.username}} on {{format_date created_at}}
   </div>
 </article>

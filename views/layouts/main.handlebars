@@ -4,42 +4,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Hut</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>PhotoHut</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' integrity='sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==' crossorigin='anonymous'/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/stylesheets/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/profile-style.css">
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' integrity='sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==' crossorigin='anonymous'></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
-<body >
-  <div class="wrapper">
-    <header>
-      <div>
-       <nav>
-        {{#if loggedIn}}
-         <a class="pr-3" href="/">Home</a>
-        <a class="" href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style text-pistachio">Logout</button>
-        {{else}}
-        <a class="text-pistachio" href="/login">login</a>
-        {{/if}}
-      </nav>
-      <div class="bg-pistachio rounded  text-center">
-      <h1>
-        <a class="text-coco" href="/">THE TECH BLOG</a>
-      </h1>
-      </div>
-      </div>
-    </header>
-    <main class="w-100">
-      {{{ body }}}
+<body>
+    <nav class="navbar navbar-expand-sm fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+              <span class="fa fa-home"></span>
+              <span class="link">PhotoHut</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>  
+          <!--nav collapse-->
+          <div class="collapse navbar-collapse" id="#collapse-1">
+            <!--nav left-->
+            <ul class="nav navbar-nav">
+              <!--session-->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <span class="fas fa-portrait"></span><span class="link">Login/Sign Up</span>
+                </a>
+                {{#if loggedIn}}
+                <ul class="dropdown-menu">
+                  <li id="logout"><a href="/"><span class="far fa-user-circle"></span> Log Out</a></li>
+                </ul>  
+                {{else}}
+                <ul class="dropdown-menu">
+                  <li><a href="/login"><span class="far fa-user-circle"></span> Login</a></li>
+                  <li><a href="/login"><span class="fas fa-pen"></span> Sign Up</a></li>
+                </ul>
+                {{/if}}
+              <!--gallery/dashboard-->
+              {{#if loggedIn}}
+              <li><a href="/dashboard"><span class="fas fa-camera-retro"></span><span class="link">My Portfolio</span></a></li>
+              {{/if}}
+            </ul>
+            <!--nav right-->  
+            <form class="navbar-form form-inline">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <button type="submit" class="btn"><span class="fa fa-search"></span></button>
+              </div>
+            </form>
+          </div>
+        </div>    
+    </nav>         
+  
+    <main>
+        {{{ body }}}
     </main>
+
     <footer>
-      Tech blog for techies by techies!
+        For the Professional
     </footer>
   </div>
-  
+
   {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
+    <script src="/javascript/logout.js"></script>
   {{/if}}
+  <script src="/javascript/navbar.js"></script>
 </body>
 
 </html>

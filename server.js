@@ -5,7 +5,6 @@ const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 require('dotenv').config();
 
-
 const app = express();
 const PORT = process.env.PORT || process.env.D_PORT;
 
@@ -27,7 +26,7 @@ const sess = {
     })
   };
 
-  app.use(session(sess));
+app.use(session(sess));
 // setting handlebars up and having it use the helper files
 const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);

@@ -1,34 +1,35 @@
 {
-  "name": "photo-hut",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "bcrypt": "^5.0.0",
-    "connect-session-sequelize": "^7.1.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "express-session": "^1.17.1",
-    "express-sessions": "^1.0.6",
-    "handlebars": "^4.7.6",
-    "mysql2": "^2.2.5",
-    "path": "^0.12.7",
-    "sequelize": "^6.5.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Azambik/Photo-Hut.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Azambik/Photo-Hut/issues"
-  },
-  "homepage": "https://github.com/Azambik/Photo-Hut#readme"
+    "name": "photo-hut",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "bcrypt": "^5.0.0",
+        "connect-session-sequelize": "^7.1.1",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.2.0",
+        "express-session": "^1.17.1",
+        "mysql2": "^2.2.5",
+        "path": "^0.12.7",
+        "sequelize": "^6.5.0"
+    },
+    "devDependencies": {
+        "jest": "^26.6.3"
+    },
+    "scripts": {
+        "test": "jest",
+        "start": "node server.js",
+        "seeds": "node ./seeds/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Azambik/Photo-Hut.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Azambik/Photo-Hut/issues"
+    },
+    "homepage": "https://github.com/Azambik/Photo-Hut#readme"
 }

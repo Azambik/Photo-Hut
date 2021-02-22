@@ -5,7 +5,7 @@ class Photo extends Model {
   static upvote(body, models) {
     return models.Vote.create({
       user_id: body.user_id,
-      Photo_id: body.photo_id
+      photo_id: body.photo_id
     }).then(() => {
       return Photo.findOne({
         where: {

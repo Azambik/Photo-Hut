@@ -94,7 +94,6 @@ router.post('/', withAuth, (req, res) => {
 //sets upvote to a photo
 
 router.put('/upvote', withAuth, (req, res) => {
-    //req.session.user_id needs to replace req.body
   Photo.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
     .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {

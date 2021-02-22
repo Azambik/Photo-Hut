@@ -1,0 +1,28 @@
+<div class="container profile mt-5">
+    <div class="row mb-5">
+        <div class="col-lg-3 prof-pic-cont">
+            <img class="rounded-circle profile-pic" src="https://via.placeholder.com/150" alt="prof pic">
+        </div>
+        <div class="col-lg-8 profile-border">
+            <input type="text" class="form-control display-name p-0" value="{{username}}">
+            <h3 class="mb-4">some statistic</h3>
+            <input class="bio">{{{format_bio bio}}}</input>
+            
+        </div>
+    </div>
+    <div class="card-columns m-2">
+        {{#each photos as |photo|}}
+        <div class="card photo-card">
+            <div class="embed-responsive image-container">
+                <img src="{{photo.photo_url}}" alt={{photo.title}} class="card-img">
+            </div>
+            
+            <div class="card-reveal">
+                <span class="material-icons edit-icon">create</span>
+                <div class="card-title">{{photo.title}}</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<script src="/javascript/profile.js"></script>

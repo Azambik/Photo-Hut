@@ -1,8 +1,38 @@
-  
-<ol class="photo-list">
-  {{#each photos as |photo|}}
-  <li>
-    {{> photo-info photo }}
-  </li>
-  {{/each}}
-</ol>
+<!-- Search section -->
+ <div id="search">
+    <!-- Search btn that shows search form -->
+    <button id="searchBtn">
+      <i class="fas fa-search"></i>
+    </button>
+    <!-- Search form thats only visible when search btn clicked -->
+    <form id="searchForm">
+      <input id="user-search" class="search" name="search" autofocus="true" type="text" placeholder="Search For a User" />
+      <input type="submit" style="display: none;"></button>
+      <!-- Wrapper to append the suggestions ul element -->
+      <div id="suggestions-wrapper"></div>
+    </form>
+    <!-- Title for featured section -->
+    <h2>Featured</h2>
+ </div>
+ <!-- Line divider -->
+  <hr>
+<!--  featured section -->
+ <div id="featured-section">
+    <div class="card-columns m-2">
+        {{#each photos as |photo|}}
+        <a href="/photo/{{id}}" class="card photo-card">
+            <div class="embed-responsive image-container">
+                <img src="{{photo.photo_url}}" alt={{photo.title}} class="card-img">
+            </div>
+            
+            <div class="card-reveal">
+                <div class="card-title">{{photo.title}}</div>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+ </div>
+
+<!-- js link -->
+ <script src="/javascript/search.js"></script>
+
