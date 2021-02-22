@@ -9,18 +9,18 @@
         <ul class="navbar-nav mr-auto">
             {{#if loggedIn}}
             <li class="nav-item">
-                <a class="nav-link fas fa-user text-white" href="/profile"></a>
+                <a class="nav-link fas fa-user text-white" href="/profile"> My Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link fas fa-sign-out-alt text-white" id="logout" href="/profile"></a>
+                <a class="nav-link fas fa-sign-out-alt text-white" id="logout" href="/profile"> Log Out</a>
             </li>
             {{else}}
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle fas fa-sign-in-alt text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                <a class="nav-link dropdown-toggle fas fa-sign-in-alt text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Login</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <form class="login-form">
                         <div class="form-group">
-                            <label for="email-login">Email address</label>
+                            <label for="email-login">Email Address</label>
                             <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
@@ -41,9 +41,12 @@
             </li>
             {{/if}}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input id="nav-search" class="form-control mr-sm-2" name="search" autofocus="true" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn searchBtn" type="submit"><span class="fas fa-search text-white"></span></button>
+        <form id="navSearchForm" class="form-inline my-2 my-lg-0">
+            <input id="nav-search" class="search form-control mr-sm-2" name="search" autofocus="true" type="text" placeholder="Search" aria-label="Search">
+            <button id="navSearchBtn" class="btn searchBtn" type="submit"><span class="fas fa-search text-white"></span>
+            <input type="submit" style="display: none;"></button>
+            <!-- Wrapper to append the suggestions ul element -->
+            <div id="navsuggestions-wrapper"></div>
         </form>
     </div>
 </nav>
@@ -52,3 +55,5 @@
 {{else}}
 <script src="/javascript/login.js"></script>
 {{/if}}
+<script src="/javascript/navsearch.js"></script>
+
