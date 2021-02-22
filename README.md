@@ -37,7 +37,7 @@ Installing this repository locally is not necessary for usage, but if you wish t
 
    first login to mysql (this may be different depending on how you have mysql set up)
 
-       $ myql -u root -p
+       $ mysql -u root -p
    then create the database by running the following within the cli
 
        mysql> source db/schema.sql
